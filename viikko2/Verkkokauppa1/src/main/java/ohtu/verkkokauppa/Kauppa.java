@@ -1,6 +1,6 @@
 package ohtu.verkkokauppa;
 
-public class Kauppa {
+public class Kauppa{
 
     private Varasto varasto;
     private Pankki pankki;
@@ -8,21 +8,24 @@ public class Kauppa {
     private Viitegeneraattori viitegeneraattori;
     private String kaupanTili;
 
-    public Kauppa() {
-        varasto = Varasto.getInstance();
-        pankki = Pankki.getInstance();
-        viitegeneraattori = Viitegeneraattori.getInstance();
+    public Kauppa(VarastoInterface varasto1, PankkiInterface pankki1, ViitegeneraattoriInterface viitegeneraattori1) {
+        varasto = (Varasto)varasto1;
+        pankki = (Pankki)pankki1;
+        viitegeneraattori = (Viitegeneraattori)viitegeneraattori1;
         kaupanTili = "33333-44455";
     }
+
 
     public void aloitaAsiointi() {
         ostoskori = new Ostoskori();
     }
 
+
     public void poistaKorista(int id) {
         Tuote t = varasto.haeTuote(id); 
         varasto.palautaVarastoon(t);
     }
+
 
     public void lisaaKoriin(int id) {
         if (varasto.saldo(id)>0) {
@@ -31,6 +34,7 @@ public class Kauppa {
             varasto.otaVarastosta(t);
         }
     }
+
 
     public boolean tilimaksu(String nimi, String tiliNumero) {
         int viite = viitegeneraattori.uusi();

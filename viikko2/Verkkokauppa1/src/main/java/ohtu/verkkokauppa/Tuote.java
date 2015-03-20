@@ -19,9 +19,11 @@ public class Tuote {
         return id==t.id;
     }
 
+
     public int getId() {
         return id;
     }
+
 
     public int getHinta() {
         return hinta;
