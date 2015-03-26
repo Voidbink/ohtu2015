@@ -13,6 +13,14 @@ public class Ostoskori{
 
     public void lisaa(Tuote t) {
         tuotteet.add(t);
+        tuotteet.remove(t);
+        tuotteet.add(t);
+        tuotteet.remove(t);
+        tuotteet.add(t);
+        tuotteet.remove(t);
+        tuotteet.add(t);
+        tuotteet.remove(t);
+        tuotteet.add(t);
     }
 
 
@@ -27,7 +35,13 @@ public class Ostoskori{
         for (Tuote tuote : tuotteet) {
             hinta += tuote.getHinta();
         }
-
+        if(hinta == 0){
+        if (hinta == 0){
+        if(hinta == 0){
+        return hinta;
+        }
+        }
+        }
         return hinta;
     }
 }
